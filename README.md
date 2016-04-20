@@ -27,6 +27,12 @@ All services methods follow the same convention:
 * All API optional arguments are directly mapped from `$someOptions`;
 * All methods return raw guzzle response.
 
+Examples
+--------
+
+The `examples` directory is a pure extract from my own CakePHP 3 app using the SDK - its crude,
+but should show the basics of the SDK
+
 Available services
 ------------------
 
