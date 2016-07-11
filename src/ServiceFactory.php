@@ -9,6 +9,7 @@ class ServiceFactory
     private static $services = [
         'sys' => 'Jippi\Vault\Services\Sys',
         'data' => 'Jippi\Vault\Services\Data',
+        'auth/token' => 'Jippi\Vault\Services\Auth\Token',
     ];
 
     private $client;
