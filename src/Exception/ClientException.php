@@ -8,7 +8,7 @@ class ClientException extends RuntimeException implements VaultExceptionInterfac
 
     public $response;
 
-    public function __construct($message, $code, $response)
+    public function __construct($message, $code = null, $response = null)
     {
         parent::__construct($message, $code);
         $this->response = $response;
