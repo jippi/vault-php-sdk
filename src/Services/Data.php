@@ -18,7 +18,7 @@ class Data
     private $client;
 
     /**
-     * Create a new Sys service with an optional Client
+     * Create a new Data service with an optional Client
      *
      * @param Client|null $client
      */

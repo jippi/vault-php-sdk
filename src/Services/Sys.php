@@ -95,7 +95,7 @@ class Sys
      */
     public function sealed()
     {
-        return $this->sealStatus()->json()['sealed'];
+        return json_decode($this->sealStatus()->getBody(), true)['sealed'];
     }
 
     /**
@@ -105,7 +105,7 @@ class Sys
      */
     public function unsealed()
     {
-        return !$this->sealStatus()->json()['sealed'];
+        return !json_decode($this->sealStatus()->getBody(), true)['sealed'];
     }
 
     /**
