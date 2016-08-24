@@ -38,3 +38,8 @@ Available services
 
 * sys
 * data
+
+License
+-------
+
+MIT
