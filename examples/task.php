@@ -50,7 +50,7 @@ class VaultTask
     {
         if (!$this->factory) {
             $options = [];
-            $options['defaults']['headers']['X-Vault-Token'] = $this->getVaultToken();
+            $options['headers']['X-Vault-Token'] = $this->getVaultToken();
             $this->factory = new VaultFactory($options);
         }
 
