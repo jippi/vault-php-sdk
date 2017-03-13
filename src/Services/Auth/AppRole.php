@@ -6,8 +6,7 @@ namespace Jippi\Vault\Services\Auth;
 use Jippi\Vault\Client;
 
 /**
- * This service class handle all Vault HTTP API endpoints starting in /auth/approle/
- *
+ * This service class handles Vault HTTP API endpoints starting in /auth/approle/
  */
 class AppRole
 {
