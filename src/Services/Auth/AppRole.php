@@ -42,5 +42,24 @@ class AppRole
         return \GuzzleHttp\json_decode($this->client->post('/v1/auth/approle/login', $params)->getBody());
     }
 
+    /**
+     * List the AppRoles defined in Vault
+     * @return mixed
+     */
+    public function listRoles()
+    {
+        return \GuzzleHttp\json_decode($this->client->list('/v1/auth/approle/role')->getBody());
+    }
+
+    /**
+     * Get the ID for the specified AppRole
+     * @param string $roleName
+     * @return mixed
+     */
+    public function getRoleId(string $roleName)
+    {
+        return \GuzzleHttp\json_decode($this->client->get("/v1/auth/approle/role/$roleName/role-id")->getBody());
+    }
+
 
 }
