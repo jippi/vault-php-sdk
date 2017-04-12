@@ -19,8 +19,16 @@ class Client
 
     public function __construct(array $options = [], LoggerInterface $logger = null, GuzzleClient $client = null)
     {
+        $base_uri = 'http://127.0.0.1:8200';
+
+        if (isset($options['base_uri'])) {
+            $base_uri = $options['base_uri'];
+        } else if (getenv('VAULT_ADDR') !== false) {
+            $base_uri = getenv('VAULT_ADDR');
+        }
+
         $options = array_replace([
-            'base_uri' => 'http://127.0.0.1:8200',
+            'base_uri' => $base_uri,
             'http_errors' => false,
             'headers' => [
                 'User-Agent' => 'Vault-PHP-SDK/1.0',
