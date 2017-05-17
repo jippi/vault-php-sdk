@@ -15,7 +15,7 @@ class Data
      *
      * @var Client
      */
-    private $client;
+    protected $client;
 
     /**
      * Create a new Data service with an optional Client
