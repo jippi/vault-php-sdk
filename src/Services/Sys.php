@@ -250,7 +250,7 @@ class Sys
      * @see    https://www.vaultproject.io/docs/http/sys-policy.html
      * @param  string $name
      * @param  mixed  $rules
-     * @return mided
+     * @return mixed
      */
     public function putPolicy($name, $rules)
     {
@@ -268,7 +268,7 @@ class Sys
      *
      * @see    https://www.vaultproject.io/docs/http/sys-policy.html
      * @param  string $name
-     * @return mided
+     * @return mixed
      */
     public function deletePolicy($name)
     {
