@@ -249,13 +249,15 @@ class Sys
      *
      * @see    https://www.vaultproject.io/docs/http/sys-policy.html
      * @param  string $name
-     * @param  mixed  $rules
-     * @return mided
+     * @param  array  $body
+     * @return mixed
      */
-    public function putPolicy($name, $rules)
+    public function putPolicy($name, array $body)
     {
+        $body = OptionsResolver::resolve($body, ['policy']);
+
         $params = [
-            'body' => json_encode($rules)
+            'body' => json_encode($body)
         ];
 
         return $this->client->put('/v1/sys/policy/' . $name, $params);
@@ -268,7 +270,7 @@ class Sys
      *
      * @see    https://www.vaultproject.io/docs/http/sys-policy.html
      * @param  string $name
-     * @return mided
+     * @return mixed
      */
     public function deletePolicy($name)
     {
