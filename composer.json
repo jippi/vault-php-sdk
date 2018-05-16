@@ -1,5 +1,5 @@
 {
-    "name": "jippi/vault-php-sdk",
+    "name": "jeffwecan/vault-php-sdk",
     "description": "SDK to talk with vaultproject.io API",
     "license": "MIT",
     "authors": [
