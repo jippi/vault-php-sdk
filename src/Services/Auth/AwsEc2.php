@@ -26,7 +26,7 @@ class AwsEc2
     public function __construct(Client $client = null, $mountPoint = null)
     {
         $this->client = $client ?: new Client();
-        $this->mountPoint = $mountPoint ?: '/v1/auth/aws';
+        $this->mountPoint = $mountPoint ?: 'aws';
     }
 
     /**
@@ -44,7 +44,7 @@ class AwsEc2
         $params = [
             'body' => json_encode($body)
         ];
-        return \GuzzleHttp\json_decode($this->client->post("$this->mountPoint/login", $params)->getBody());
+        return \GuzzleHttp\json_decode($this->client->post("/v1/auth/$this->mountPoint/login", $params)->getBody());
     }
 
 
