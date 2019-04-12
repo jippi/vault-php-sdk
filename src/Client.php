@@ -80,6 +80,11 @@ class Client
         return $this->send(new Request('OPTIONS', $url), $options);
     }
 
+    public function list($url, array $options = [])
+    {
+        return $this->send(new Request('LIST', $url), $options);
+    }
+
     public function send(RequestInterface $request, $options = [])
     {
         $this->logger->info(sprintf('%s "%s"', $request->getMethod(), $request->getUri()));
