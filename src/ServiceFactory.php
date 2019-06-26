@@ -6,14 +6,14 @@ use Psr\Log\LoggerInterface;
 
 class ServiceFactory
 {
-    private static $services = [
+    protected static $services = [
         'sys' => 'Jippi\Vault\Services\Sys',
         'data' => 'Jippi\Vault\Services\Data',
         'auth/token' => 'Jippi\Vault\Services\Auth\Token',
         'auth/approle'=>'Jippi\Vault\Services\Auth\AppRole'
     ];
 
-    private $client;
+    protected $client;
 
     public function __construct(array $options = array(), LoggerInterface $logger = null, GuzzleClient $guzzleClient = null)
     {
