@@ -111,6 +111,8 @@ class Client
             throw new ClientException($message, $response->getStatusCode(), $response);
         }
 
+        $response->getBody()->rewind();
+
         return $response;
     }
 }
