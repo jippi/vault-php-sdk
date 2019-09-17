@@ -33,21 +33,21 @@ class Data
             'body' => json_encode($body)
         ];
 
-        return $this->client->put('/v1/' . $path, $params);
+        return $this->client->put('/' . $path, $params);
     }
 
     public function get($path)
     {
-        return $this->client->get('/v1/' . $path);
+        return $this->client->get('/' . $path);
     }
 
     public function delete($path)
     {
-        return $this->client->delete('/v1/' . $path);
+        return $this->client->delete('/' . $path);
     }
 
     public function list($path) 
     {
-        return $this->client->list('/v1/' . $path);
+        return $this->client->list('/' . $path);
     }
 }

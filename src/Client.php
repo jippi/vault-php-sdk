@@ -14,6 +14,8 @@ use Jippi\Vault\Exception\ServerException;
 
 class Client
 {
+    private const VERSION = '/v1';
+
     private $client;
     private $logger;
 
@@ -42,42 +44,42 @@ class Client
 
     public function get($url = null, array $options = [])
     {
-        return $this->send(new Request('GET', $url), $options);
+        return $this->send(new Request('GET', $this->getUrl($url)), $options);
     }
 
     public function head($url, array $options = [])
     {
-        return $this->send(new Request('HEAD', $url), $options);
+        return $this->send(new Request('HEAD', $this->getUrl($url)), $options);
     }
 
     public function delete($url, array $options = [])
     {
-        return $this->send(new Request('DELETE', $url), $options);
+        return $this->send(new Request('DELETE', $this->getUrl($url)), $options);
     }
 
     public function put($url, array $options = [])
     {
-        return $this->send(new Request('PUT', $url), $options);
+        return $this->send(new Request('PUT', $this->getUrl($url)), $options);
     }
 
     public function patch($url, array $options = [])
     {
-        return $this->send(new Request('PATCH', $url), $options);
+        return $this->send(new Request('PATCH', $this->getUrl($url)), $options);
     }
 
     public function post($url, array $options = [])
     {
-        return $this->send(new Request('POST', $url), $options);
+        return $this->send(new Request('POST', $this->getUrl($url)), $options);
     }
 
     public function options($url, array $options = [])
     {
-        return $this->send(new Request('OPTIONS', $url), $options);
+        return $this->send(new Request('OPTIONS', $this->getUrl($url)), $options);
     }
 
     public function list($url, array $options = [])
     {
-        return $this->send(new Request('LIST', $url), $options);
+        return $this->send(new Request('LIST', $this->getUrl($url)), $options);
     }
 
     public function send(RequestInterface $request, $options = [])
@@ -111,6 +113,13 @@ class Client
             throw new ClientException($message, $response->getStatusCode(), $response);
         }
 
+        $response->getBody()->rewind();
+
         return $response;
+    }
+
+    private function getUrl($url = null)
+    {
+        return is_null($url) ?: self::VERSION . $url;
     }
 }
