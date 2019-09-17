@@ -10,7 +10,8 @@ class ServiceFactory
         'sys' => 'Jippi\Vault\Services\Sys',
         'data' => 'Jippi\Vault\Services\Data',
         'auth/token' => 'Jippi\Vault\Services\Auth\Token',
-        'auth/approle'=>'Jippi\Vault\Services\Auth\AppRole'
+        'auth/approle'=>'Jippi\Vault\Services\Auth\AppRole',
+        'transit' => 'Jippi\Vault\Services\Transit',
     ];
 
     protected $client;
