@@ -35,7 +35,7 @@ class Sys
      */
     public function status()
     {
-        return $this->client->get('/v1/sys/init');
+        return $this->client->get('/sys/init');
     }
 
     /**
@@ -55,7 +55,7 @@ class Sys
             'body' => json_encode($body)
         ];
 
-        return $this->client->put('/v1/sys/init', $params);
+        return $this->client->put('/sys/init', $params);
     }
 
     /**
@@ -68,7 +68,7 @@ class Sys
      */
     public function sealStatus()
     {
-        return $this->client->get('/v1/sys/seal-status');
+        return $this->client->get('/sys/seal-status');
     }
 
     /**
@@ -85,7 +85,7 @@ class Sys
      */
     public function seal()
     {
-        return $this->client->put('/v1/sys/seal');
+        return $this->client->put('/sys/seal');
     }
 
     /**
@@ -129,7 +129,7 @@ class Sys
             'body' => json_encode($body)
         ];
 
-        return $this->client->put('/v1/sys/unseal', $params);
+        return $this->client->put('/sys/unseal', $params);
     }
 
     /**
@@ -142,7 +142,7 @@ class Sys
      */
     public function mounts()
     {
-        return $this->client->get('/v1/sys/mounts');
+        return $this->client->get('/sys/mounts');
     }
 
     /**
@@ -160,7 +160,7 @@ class Sys
             'body' => json_encode($body)
         ];
 
-        return $this->client->post('/v1/sys/mounts/' . $name, $params);
+        return $this->client->post('/sys/mounts/' . $name, $params);
     }
 
     /**
@@ -172,7 +172,7 @@ class Sys
      */
     public function deleteMount($name)
     {
-        return $this->client->delete('/v1/sys/mounts/' . $name);
+        return $this->client->delete('/sys/mounts/' . $name);
     }
 
     /**
@@ -191,7 +191,7 @@ class Sys
             'body' => json_encode($body)
         ];
 
-        return $this->client->post('/v1/sys/remount', $params);
+        return $this->client->post('/sys/remount', $params);
     }
 
     /**
@@ -209,14 +209,14 @@ class Sys
     public function tuneMount($name, array $body = [])
     {
         if (empty($body)) {
-            return $this->client->get('/v1/sys/mounts/' . $name . '/tune');
+            return $this->client->get('/sys/mounts/' . $name . '/tune');
         }
 
         $params = [
             'body' => json_encode(OptionsResolver::resolve($body, ['default_lease_ttl', 'max_lease_ttl']))
         ];
 
-        return $this->client->post('/v1/sys/mounts/' . $name . '/tune', $params);
+        return $this->client->post('/sys/mounts/' . $name . '/tune', $params);
     }
 
     /**
@@ -227,7 +227,7 @@ class Sys
      */
     public function policies()
     {
-        return $this->client->get('/v1/sys/policy');
+        return $this->client->get('/sys/policy');
     }
 
     /**
@@ -239,7 +239,7 @@ class Sys
      */
     public function policy($name)
     {
-        return $this->client->get('/v1/sys/policy/' . $name);
+        return $this->client->get('/sys/policy/' . $name);
     }
 
     /**
@@ -260,7 +260,7 @@ class Sys
             'body' => json_encode($body)
         ];
 
-        return $this->client->put('/v1/sys/policy/' . $name, $params);
+        return $this->client->put('/sys/policy/' . $name, $params);
     }
 
     /**
@@ -274,7 +274,7 @@ class Sys
      */
     public function deletePolicy($name)
     {
-        return $this->client->delete('/v1/sys/policy/' . $name);
+        return $this->client->delete('/sys/policy/' . $name);
     }
 
     /**
@@ -295,10 +295,10 @@ class Sys
         ];
 
         if (empty($token)) {
-            return $this->client->post('/v1/sys/capabilities-self', $params);
+            return $this->client->post('/sys/capabilities-self', $params);
         }
 
-        return $this->client->post('/v1/sys/capabilities', $params);
+        return $this->client->post('/sys/capabilities', $params);
     }
 
     /**
@@ -315,7 +315,7 @@ class Sys
             'body' => json_encode(array_filter(compact('increment')))
         ];
 
-        return $this->client->put('/v1/sys/renew/' . $leaseId, $params);
+        return $this->client->put('/sys/renew/' . $leaseId, $params);
     }
 
     /**
@@ -327,7 +327,7 @@ class Sys
      */
     public function revoke($leaseId)
     {
-        return $this->client->put('/v1/sys/revoke/' . $leaseId);
+        return $this->client->put('/sys/revoke/' . $leaseId);
     }
 
     /**
@@ -339,7 +339,7 @@ class Sys
      */
     public function revokePrefix($prefix)
     {
-        return $this->client->put('/v1/sys/revoke-prefix/' . $prefix);
+        return $this->client->put('/sys/revoke-prefix/' . $prefix);
     }
 
     /**
@@ -361,7 +361,7 @@ class Sys
      */
     public function revokeForce($prefix)
     {
-        return $this->client->put('/v1/sys/revoke-force/' . $prefix);
+        return $this->client->put('/sys/revoke-force/' . $prefix);
     }
 
     /**
@@ -372,7 +372,7 @@ class Sys
      */
     public function leader()
     {
-        return $this->client->get('/v1/sys/leader');
+        return $this->client->get('/sys/leader');
     }
 
     /**
@@ -390,7 +390,7 @@ class Sys
      */
     public function stepDown()
     {
-        return $this->client->get('/v1/sys/step-down');
+        return $this->client->get('/sys/step-down');
     }
 
     /**
@@ -401,7 +401,7 @@ class Sys
      */
     public function keyStatus()
     {
-        return $this->client->get('/v1/sys/key-status');
+        return $this->client->get('/sys/key-status');
     }
 
     /**
@@ -418,7 +418,7 @@ class Sys
      */
     public function rotate()
     {
-        return $this->client->put('/v1/sys/rotate');
+        return $this->client->put('/sys/rotate');
     }
 
     /**
@@ -436,14 +436,14 @@ class Sys
     public function raw($path, $value = null)
     {
         if ($value === null) {
-            return $this->client->get('/v1/sys/raw/' . $path);
+            return $this->client->get('/sys/raw/' . $path);
         }
 
         $params = [
             'body' => json_encode(compact('value'))
         ];
 
-        return $this->client->put('/v1/sys/raw/' . $path, $params);
+        return $this->client->put('/sys/raw/' . $path, $params);
     }
 
     /**
@@ -457,7 +457,7 @@ class Sys
      */
     public function deleteRaw($path)
     {
-        return $this->client->delete('/v1/sys/raw/' . $path);
+        return $this->client->delete('/sys/raw/' . $path);
     }
 
     /**
@@ -469,7 +469,7 @@ class Sys
      */
     public function health(array $arguments = [])
     {
-        $url = '/v1/sys/health?' . http_build_query($arguments);
+        $url = '/sys/health?' . http_build_query($arguments);
         return $this->client->get($url);
     }
 

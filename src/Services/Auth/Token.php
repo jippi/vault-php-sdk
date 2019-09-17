@@ -51,7 +51,7 @@ class Token
             'body' => json_encode($body)
         ];
 
-        return $this->client->post('/v1/auth/token/create', $params)->json();
+        return $this->client->post('/auth/token/create', $params)->json();
     }
 
     /**
@@ -62,7 +62,7 @@ class Token
      */
     public function lookupSelf()
     {
-        return $this->client->get('/v1/auth/token/lookup-self');
+        return $this->client->get('/auth/token/lookup-self');
     }
 
     /**
@@ -74,7 +74,7 @@ class Token
      */
     public function lookup($token)
     {
-        return $this->client->get('/v1/auth/token/lookup/' . $token);
+        return $this->client->get('/auth/token/lookup/' . $token);
     }
 
     /**
@@ -92,7 +92,7 @@ class Token
     {
         $body = OptionsResolver::resolve($body, ['increment']);
         $params = ['body' => json_encode($body)];
-        return $this->client->post('/v1/auth/token/renew-self', $params);
+        return $this->client->post('/auth/token/renew-self', $params);
     }
 
     /**
@@ -110,7 +110,7 @@ class Token
     {
         $body = OptionsResolver::resolve($body, ['token', 'increment']);
         $params = ['body' => json_encode($body)];
-        return $this->client->post('/v1/auth/token/renew', $params);
+        return $this->client->post('/auth/token/renew', $params);
     }
 
     /**
@@ -126,7 +126,7 @@ class Token
     {
         $body = OptionsResolver::resolve($body, ['token']);
         $params = ['body' => json_encode($body)];
-        return $this->client->post('/v1/auth/token/revoke', $params);
+        return $this->client->post('/auth/token/revoke', $params);
     }
 
     /**
@@ -140,7 +140,7 @@ class Token
      */
     public function revokeSelf(array $body = [])
     {
-        return $this->client->post('/v1/auth/token/revoke-self');
+        return $this->client->post('/auth/token/revoke-self');
     }
 
     /**
@@ -158,7 +158,7 @@ class Token
      */
     public function revokeOrphan(array $body = [])
     {
-        return $this->client->post('/v1/auth/token/revoke-orphan');
+        return $this->client->post('/auth/token/revoke-orphan');
     }
 
     /**
@@ -170,7 +170,7 @@ class Token
      */
     public function deleteRole(string $role)
     {
-        return $this->client->delete('/v1/auth/token/roles/' . $role);
+        return $this->client->delete('/auth/token/roles/' . $role);
     }
 
     /**
@@ -182,7 +182,7 @@ class Token
      */
     public function getRole(string $role)
     {
-        return $this->client->get('/v1/auth/token/roles/' . $role);
+        return $this->client->get('/auth/token/roles/' . $role);
     }
 
     /**
@@ -193,7 +193,7 @@ class Token
      */
     public function listRoles()
     {
-        return $this->client->get('/v1/token/roles?list=true');
+        return $this->client->get('/token/roles?list=true');
     }
 
     /**
@@ -214,7 +214,7 @@ class Token
     {
         $body = OptionsResolver::resolve($body, ['allowed_policies', 'orphan', 'period', 'renewable', 'path_suffix', 'explicit_max_ttl']);
         $params = ['body' => json_encode($body)];
-        return $this->client->post('/v1/auth/token/roles/' . $role, $params);
+        return $this->client->post('/auth/token/roles/' . $role, $params);
     }
 
 }

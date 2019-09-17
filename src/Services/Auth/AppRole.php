@@ -38,7 +38,7 @@ class AppRole
         $params = [
             'body' => json_encode($body)
         ];
-        return \GuzzleHttp\json_decode($this->client->post('/v1/auth/approle/login', $params)->getBody());
+        return \GuzzleHttp\json_decode($this->client->post('/auth/approle/login', $params)->getBody());
     }
 
     /**
@@ -47,7 +47,7 @@ class AppRole
      */
     public function listRoles()
     {
-        return \GuzzleHttp\json_decode($this->client->list('/v1/auth/approle/role')->getBody());
+        return \GuzzleHttp\json_decode($this->client->list('/auth/approle/role')->getBody());
     }
 
     /**
@@ -57,7 +57,7 @@ class AppRole
      */
     public function getRoleId(string $roleName)
     {
-        return \GuzzleHttp\json_decode($this->client->get("/v1/auth/approle/role/$roleName/role-id")->getBody());
+        return \GuzzleHttp\json_decode($this->client->get("/auth/approle/role/$roleName/role-id")->getBody());
     }
 
 
